@@ -9,8 +9,9 @@ from prophet import Prophet
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("ecommerce_sales_data (2).csv")
-df1 = pd.read_csv("updated_sales.csv")
+
+df = pd.read_csv("data/ecommerce_sales_data (2).csv")
+df1 = pd.read_csv("data/updated_sales.csv")
 
 print(df.head())                
 
