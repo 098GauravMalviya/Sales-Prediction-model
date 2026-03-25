@@ -1,0 +1,14 @@
+,Name,Date,Public,Country,Weekday
+0,Republic Day,2022-01-26,True,India,Wednesday
+1,Valentine's Day,2022-02-14,False,India,Monday
+2,March Equinox,2022-03-20,False,India,Sunday
+3,Bank Holiday,2022-04-01,False,India,Friday
+4,Doctor Ambedkar's Birthday,2022-04-14,False,India,Thursday
+5,Mother's Day,2022-05-08,False,India,Sunday
+6,Father's Day,2022-06-19,False,India,Sunday
+7,June Solstice,2022-06-21,False,India,Tuesday
+8,Friendship Day,2022-08-07,False,India,Sunday
+9,Independence Day,2022-08-15,True,India,Monday
+10,September Equinox,2022-09-23,False,India,Friday
+11,Mahatma Gandhi's Birthday,2022-10-02,True,India,Sunday
+12,December Solstice,2022-12-21,False,India,Wednesday
