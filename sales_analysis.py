@@ -279,6 +279,8 @@ import joblib
 # Save the trained model — this is all your backend needs
 joblib.dump(model, 'model.pkl')
 print("✅ Model saved to model.pkl")
+joblib.dump(list(X.columns), 'model_features.pkl')  # ← add this if missing
+print("✅ Feature columns saved to model_features.pkl")
 
 ## CONNNECTING TO DATABASE AND USING SMART QUERIES
 
