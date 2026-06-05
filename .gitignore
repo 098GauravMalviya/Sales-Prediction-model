@@ -2,5 +2,16 @@ venv/
 node_modules/
 __pycache__/
 *.pyc
+*.pyo
 archive*/
 data/
+.env
+.env.local
+FrontEnd/node_modules/
+# Vite build output
+FrontEnd/dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.log

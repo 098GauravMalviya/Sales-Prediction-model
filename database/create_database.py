@@ -10,13 +10,19 @@ import os
 import sqlite3
 import pandas as pd
 import numpy as np
+# ------------------------------------------
+# PATHS for deployment
+# ------------------------------------------
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+DB_PATH  = os.path.join(BASE_DIR, "database", "market_analysis.db")
 
 # ─────────────────────────────────────────────
-# PATHS
+# PATHS for localhost
 # ─────────────────────────────────────────────
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = r"C:\Users\gaura\Music\mini_project\data"
-DB_PATH  = os.path.join(BASE_DIR, "market_analysis.db")
+#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#DATA_DIR = r"C:\Users\gaura\Music\mini_project\data"
+#DB_PATH  = os.path.join(BASE_DIR, "market_analysis.db")
 
 DATA_FILES = {
     "ecommerce"   : os.path.join(DATA_DIR, "ecommerce_sales_data (2).csv"),

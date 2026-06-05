@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware  # ← NEW: needed for React
 from pydantic import BaseModel
 from typing import Optional
 from prophet import Prophet
-
+import os
 from database.create_database import get_connection, SmartQuery
 
 app = FastAPI(title="Generalized Sales Prediction API")
@@ -14,7 +14,9 @@ app = FastAPI(title="Generalized Sales Prediction API")
 # ── NEW: CORS — without this your React frontend cannot call this API ──
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # your React dev server port
+    allow_origins=["http://localhost:5173", "http://localhost:3000",
+        os.getenv("FRONTEND_URL", ""),
+        "https://*.vercel.app",],  # your React dev server port
     allow_methods=["*"],
     allow_headers=["*"],
 )
