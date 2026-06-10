@@ -10,12 +10,13 @@ import os
 from database.create_database import get_connection, SmartQuery
 
 app = FastAPI(title="Generalized Sales Prediction API")
+FRONTEND_URL = os.getenv("https://sales-prediction-model-mu.vercel.app/", "http://localhost:5173")
 
 # ── NEW: CORS — without this your React frontend cannot call this API ──
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://localhost:3000",
-        os.getenv("https://sales-prediction-model-mu.vercel.app/", ""),
+        FRONTEND_URL, "",
         "https://*.vercel.app",],  # your React dev server port
     allow_methods=["*"],
     allow_headers=["*"],
