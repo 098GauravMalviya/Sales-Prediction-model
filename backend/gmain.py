@@ -15,7 +15,7 @@ app = FastAPI(title="Generalized Sales Prediction API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://localhost:3000",
-        os.getenv("FRONTEND_URL", ""),
+        os.getenv("https://sales-prediction-model-mu.vercel.app/", ""),
         "https://*.vercel.app",],  # your React dev server port
     allow_methods=["*"],
     allow_headers=["*"],
