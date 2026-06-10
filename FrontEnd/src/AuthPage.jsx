@@ -1,11 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Mail, Lock, UserPlus, EyeOff, BarChart3, ChevronRight, TrendingUp, Package, ArrowLeft } from 'lucide-react';
-
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000"
 export default function AuthPage({ onLoginSuccess, onBack }) {
   const handleLogin = async () => {
   try {
-    const response = await axios.post('http://localhost:8000/login', {
+    const response = await axios.post(`${BASE_URL}/login`, {
       username: email, // you'll need to capture this from your input state
       password: password
     });
@@ -47,7 +47,7 @@ export default function AuthPage({ onLoginSuccess, onBack }) {
       : { username: email, password: password, full_name: fullName };
     try {
       // This sends the data to your Python Backend
-      const response = await fetch(`http://localhost:8000${endpoint}`, {
+      const response = await fetch(`${BASE_URL}${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
