@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Mail, Lock, UserPlus, EyeOff, BarChart3, ChevronRight, TrendingUp, Package, ArrowLeft } from 'lucide-react';
-const BASE_URL = import.meta.env.sales-prediction-model-mu.vercel.app/ || "http://localhost:8000"
+const BASE_URL = import.meta.env.sales-prediction-model-mu.vercel.app || "http://localhost:8000"
 export default function AuthPage({ onLoginSuccess, onBack }) {
   const handleLogin = async () => {
   try {
