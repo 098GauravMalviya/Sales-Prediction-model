@@ -10,14 +10,25 @@ import os
 from database.create_database import get_connection, SmartQuery
 
 app = FastAPI(title="Generalized Sales Prediction API")
-FRONTEND_URL = os.getenv("https://sales-prediction-model-mu.vercel.app/", "http://localhost:5173")
 
-# ── NEW: CORS — without this your React frontend cannot call this API ──
+origins = [
+    "http://localhost:5173",                       # Vite Local Dev
+    "http://localhost:3000",                       # React Local Dev
+    "https://sales-prediction-model-mu.vercel.app" # Your Main Production App
+]
+
+# Safely check if a custom FRONTEND_URL is set on Render's dashboard environment variables
+custom_frontend = os.getenv("FRONTEND_URL")
+if custom_frontend:
+    origins.append(custom_frontend)
+
+# 2. Attach the middleware correctly
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000",
-        FRONTEND_URL, "",
-        "https://*.vercel.app",],  # your React dev server port
+    allow_origins=origins,
+    # This regex dynamically handles any vercel preview branches or main domains safely:
+    allow_origin_regex=r"https://sales-prediction-model-.*\.vercel\.app",
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
